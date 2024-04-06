@@ -1,28 +1,34 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
-export const PizzaContext = createContext();
+const PizzaContext = createContext();
 
-const PizzaContextProvider = (props) => {
-  const [pizzas, setPizzas] = useState([]);
+const PizzaProvider = ({ children }) => {
+  const [pizzaDetails, setPizzaDetails] = useState([]);
 
   useEffect(() => {
-    const fetchPizzas = async () => {
+    const getPizzaDetails = async () => {
       try {
-        const response = await fetch('/pizzas.json');
+        const response = await fetch("/pizzas.json"); // Ruta correcta a tu archivo JSON
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Networking response was not ok');
         }
         const data = await response.json();
-        setPizzas(data);
+        setPizzaDetails(data);
       } catch (error) {
-        console.error('Error fetching pizzas:', error);
+        console.error('Error fetching Pizza details:', error);
       }
     };
 
-    fetchPizzas();
+    getPizzaDetails();
   }, []);
 
-  return <PizzaContext.Provider value={{ pizzas }}>{props.children}</PizzaContext.Provider>;
+  return (
+    <PizzaContext.Provider value={{ pizzaDetails }}>
+      {children}
+    </PizzaContext.Provider>
+  );
 };
 
-export default PizzaContextProvider;
+const usePizza = () => useContext(PizzaContext);
+
+export { PizzaProvider, usePizza };
