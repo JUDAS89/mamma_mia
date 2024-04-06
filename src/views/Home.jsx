@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { usePizza } from '../context/PizzaContext'
+import { NavLink } from 'react-router-dom';
 import '../style.css'
 
 const Home = () => {
