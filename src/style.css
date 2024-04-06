@@ -63,10 +63,6 @@ nav{
     background-color: white;
 }
 
-.descriptionPizza{
-    padding: 10px;
-}
-
 .price{
     text-align: center;
     font-weight: bold;
@@ -107,6 +103,10 @@ nav{
     text-align: center;
 }
 
+.descriptionPizza{
+    padding: 10px;
+}
+
 .pizzaItemVer{
     display: flex;
     flex-direction: row;
@@ -115,7 +115,7 @@ nav{
 }
 
 .imgPizzaItemVer{
-    width: 40%;
+    width: 60%;
 }
 
 .bottomCard{

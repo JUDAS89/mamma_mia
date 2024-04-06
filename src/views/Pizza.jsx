@@ -39,7 +39,7 @@ const Pizza = () => {
                 </ul>
                 <div className="bottomCard">
                     <p className="price"><span>Precio: ${pizza.price}</span></p>
-                    <button id="btnSum">Ver Más 🛒</button>
+                    <button id="btnSum">Añadir 🛒</button>
                 </div>
             </div>
       </div>
