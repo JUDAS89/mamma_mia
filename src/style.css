@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    background-color:skyblue;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.identificacion{
+    padding-left: 80px;
+}
+
+.total{
+    padding-right: 80px;
+}
