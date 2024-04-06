@@ -1,10 +1,14 @@
+import '../style.css'
+
 const Home = () => {
 
-    return () => {
+    return (
         <div className="presentacionHome">
-            <h1>¡Pizzeria Mamma Mia!</h1>
-            <h4>¡Tenemos las mejores pizzas que podras encontrar!</h4>
+            <h1>¡Pizzería Mamma Mia!</h1>
+            <h4>¡Tenemos las mejores pizzas que podrás encontrar!</h4>
             <hr />
         </div>
-    }
+    )
 }
+
+export default Home;

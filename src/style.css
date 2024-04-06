@@ -6,7 +6,7 @@ body {
 nav{
     display: flex;
     flex-direction: row;
-    background-color:skyblue;
+    background-color: lightblue;
     justify-content:space-between;
     align-items: center;
     width: 100%;
@@ -16,10 +16,28 @@ nav{
     color: white;
 }
 
-.identificacion{
-    padding-left: 80px;
+.linkHome{
+    padding-left: 60px;
+    text-decoration: none;
 }
 
-.total{
+.linkCarrito{
     padding-right: 80px;
+    text-decoration: none;
 }
+
+.presentacionHome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:lightcyan;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url('./assets//img/fondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 35vh;
+    margin-bottom: 15px;
+}
+

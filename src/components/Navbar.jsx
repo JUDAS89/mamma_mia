@@ -1,13 +1,32 @@
-import React from "react";
-import '../style.css'
+/*import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-export default function Navbar () {
+const Navbar = () => {
+  return (
+    <nav className="navbar">
+      <NavLink className="identificacion" to="/">
+        🍕Pizzeria Mamma Mia!
+      </NavLink>
+      <NavLink className="total" to="/carrito">
+        🛒 $ <span></span>
+      </NavLink>
+    </nav>
+  );
+};
 
+export default Navbar;
+*/
 
-    return (
-        <nav>
-            <div className="identificacion">🍕Pizzeria Mamma Mia!</div>
-            <div className="total">🛒 $ <span></span></div>    
-        </nav>
-    )
-}
+import React from 'react'
+import { NavLink } from 'react-router-dom';
+
+const Navbar = () => {
+  return (
+    <nav>
+      <NavLink className="linkHome" to="/">🍕 Pizzería Mamma Mia!</NavLink>
+      <NavLink className="linkCarrito" to="/carrito">🛒</NavLink>
+    </nav>
+  );
+};
+
+export default Navbar;
