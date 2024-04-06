@@ -34,8 +34,8 @@ const Home = () => {
                     <p className='price'><span>$ {pizza.price}</span></p>
                 </div>
                 <div className='boxBtn'>
-                    <button id='btnVer'>Ver Más 👀</button>
-                    <button id='btnSum'> Ver Más 🛒</button>
+                    <NavLink to={`/pizza/${pizza.id}`} id='btnVer' activeClassName='activeLink'>Ver Más 👀</NavLink>
+                    <button id='btnSum'> Añadir 🛒</button>
                 </div>
             </div>
           ))}

@@ -1,23 +1,48 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { PizzaContext } from '../context/PizzaContext';
+import { usePizza } from '../context/PizzaContext'
 
 const Pizza = () => {
-  const { pizzas } = useContext(PizzaContext);
-  const { id } = useParams();
-  const pizza = pizzas.find((pizza) => pizza.id === id);
+    const { id } = useParams(); // obtener el id de la pizza
+    //const { pizzas } = usePizza ()
+    const { pizzaDetails } = usePizza(); // Obtener el contexto de las pizzas
+  
 
-  if (!pizza) {
-    return <div>No se encontró la pizza</div>;
-  }
+    // Verificar si pizzaDetails está definido y no está vacío
+    if (!pizzaDetails || pizzaDetails.length === 0) {
+        return <div>Cargando pizzas...</div>; // Mostrar un mensaje de carga mientras se obtienen los datos
+    }
+  
+    //encontrar el detalle de la pizza por su id
+    const pizza = pizzaDetails.find((pizza) => pizza.id === id);
 
-  return (
-    <div>
-      <img src={pizza.img} alt={pizza.name} style={{ width: '200px', height: '200px' }} />
-      <h1>{pizza.name}</h1>
-      <p>Ingredientes: {pizza.ingredients.join(', ')}</p>
-      <p>Precio: ${pizza.price}</p>
-    </div>
+    if (!pizza) {
+        return <div>No se encontró la pizza</div>; //mostrar mensaje si la pizza no se encuentra
+     }
+
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
+    return (
+        <div className="pizzaItemVer">
+            <img src={pizza.img} alt={pizza.name} className='imgPizzaItemVer'/>
+            <div className="descriptionPizza">
+                <h2>{capitalizeFirstLetter(pizza.name)}</h2>
+                <hr />
+                <p>{capitalizeFirstLetter(pizza.desc)}</p>
+                <h5>Ingredientes:</h5>
+                <ul className="listIngredients">
+                {pizza.ingredients.map((ingredient, index) => (
+                    <li key={index}>🍕 {capitalizeFirstLetter(ingredient)}</li>
+                    ))}
+                </ul>
+                <div className="bottomCard">
+                    <p className="price"><span>Precio: ${pizza.price}</span></p>
+                    <button id="btnSum">Ver Más 🛒</button>
+                </div>
+            </div>
+      </div>
   );
 };
 

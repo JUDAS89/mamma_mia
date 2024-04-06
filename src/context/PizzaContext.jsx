@@ -8,7 +8,7 @@ const PizzaProvider = ({ children }) => {
   useEffect(() => {
     const getPizzaDetails = async () => {
       try {
-        const response = await fetch("/pizzas.json"); // Ruta correcta a tu archivo JSON
+        const response = await fetch("/pizzas.json"); 
         if (!response.ok) {
           throw new Error('Networking response was not ok');
         }
@@ -31,4 +31,4 @@ const PizzaProvider = ({ children }) => {
 
 const usePizza = () => useContext(PizzaContext);
 
-export { PizzaProvider, usePizza };
+export { PizzaProvider, usePizza, PizzaContext };

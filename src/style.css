@@ -64,7 +64,7 @@ nav{
 }
 
 .descriptionPizza{
-    padding-left: 10px;
+    padding: 10px;
 }
 
 .price{
@@ -92,6 +92,9 @@ nav{
     border-style: inherit;
     color: white;
     width: 100px;
+    height: 30px;
+    text-decoration: none;
+    text-align: center;
 }
 
 #btnSum{
@@ -100,4 +103,24 @@ nav{
     border-style: inherit;
     color: white;
     width: 100px;
+    height: 30px;
+    text-align: center;
+}
+
+.pizzaItemVer{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    margin: 20px;
+}
+
+.imgPizzaItemVer{
+    width: 40%;
+}
+
+.bottomCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
