@@ -169,7 +169,7 @@ nav{
 }
 
 #btnPluss{
-    background-color: tomato;
+    background-color: dodgerblue;
     border-style: initial;
     border-radius: 5px;
     height: 30px;
@@ -177,7 +177,7 @@ nav{
 }
 
 #btnLess{
-    background-color:dodgerblue;
+    background-color:tomato;
     border-style: initial;
     border-radius: 5px;
     height: 30px;

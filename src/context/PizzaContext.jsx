@@ -4,7 +4,7 @@ const PizzaContext = createContext();
 
 const PizzaProvider = ({ children }) => {
   const [pizzaDetails, setPizzaDetails] = useState([]);
-  const [selectedPizzas, setSelectedPizzas] = useState([])
+  const [cartItems, setCartItems] = useState({}) // objeto para el carrito
 
   useEffect(() => {
     const getPizzaDetails = async () => {
@@ -24,21 +24,48 @@ const PizzaProvider = ({ children }) => {
   }, []);
 
     const addToCarrito = (pizza) => {
-        setSelectedPizzas([...selectedPizzas, pizza]);
-    };
+        const { id, price } = pizza
+        const updatedCartItems = { ...cartItems }
+    
+        if (updatedCartItems[id]) {
+            // Si ya existe esta pizza en el carrito, incrementar la cantidad y el precio acumulado
+            updatedCartItems[id].quantity++;
+            updatedCartItems[id].totalPrice += price;
+        } else {
+            // Si es una pizza nueva en el carrito, añadir al objeto cartItems
+            updatedCartItems[id] = { quantity: 1, totalPrice: price };
+        }
+
+      setCartItems(updatedCartItems)
+    }
 
     const removeFromCarrito = (pizzaId) => {
-        const updatedPizzas = selectedPizzas.filter((pizza) => pizza.id !== pizzaId);
-        setSelectedPizzas(updatedPizzas);
+        const updatedCartItems = { ...cartItems };
+
+        if (updatedCartItems[pizzaId]) {
+            // Reducir la cantidad y el precio acumulado si la cantidad es mayor que 0
+            if (updatedCartItems[pizzaId].quantity > 0) {
+              updatedCartItems[pizzaId].quantity--;
+              updatedCartItems[pizzaId].totalPrice -= pizzaDetails.find(pizza => pizza.id === pizzaId).price;
+            }
+            
+            // Eliminar la entrada si la cantidad llega a 0
+            if (updatedCartItems[pizzaId].quantity === 0) {
+              delete updatedCartItems[pizzaId];
+            }
+      
+            setCartItems(updatedCartItems);
+          }
       };
 
   return (
-    <PizzaContext.Provider value={{ pizzaDetails, selectedPizzas, addToCarrito, removeFromCarrito }}>
+    <PizzaContext.Provider value={{ pizzaDetails, cartItems, addToCarrito, removeFromCarrito }}>
       {children}
     </PizzaContext.Provider>
   );
-};
+  }
 
 const usePizza = () => useContext(PizzaContext);
 
 export { PizzaProvider, usePizza, PizzaContext };
+  
