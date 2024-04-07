@@ -12,8 +12,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
         <PizzaProvider>
+          <Navbar />
           <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/pizza/:id" element={<Pizza />} />

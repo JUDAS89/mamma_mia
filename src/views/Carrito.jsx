@@ -1,7 +1,8 @@
+import React from 'react';
 import { usePizza } from '../context/PizzaContext'
 
 const Carrito = () => {
-    const { pizzaDetails, cartItems, addToCarrito, removeFromCarrito } = usePizza() //pbtener las pizzas seleccionadas
+    const { pizzaDetails, cartItems, addToCarrito, removeFromCarrito } = usePizza() //obtener las pizzas seleccionadas
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
