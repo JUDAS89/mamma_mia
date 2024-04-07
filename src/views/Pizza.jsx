@@ -4,8 +4,11 @@ import { usePizza } from '../context/PizzaContext'
 
 const Pizza = () => {
     const { id } = useParams(); // obtener el id de la pizza
-    //const { pizzas } = usePizza ()
-    const { pizzaDetails } = usePizza(); // Obtener el contexto de las pizzas
+    const { pizzaDetails, addToCarrito } = usePizza(); // Obtener el contexto de las pizzas
+
+    const handleAddToCarrito = (pizza) => {
+        addToCarrito(pizza); // Agregar la pizza seleccionada al carrito
+      };
   
 
     // Verificar si pizzaDetails está definido y no está vacío
@@ -39,7 +42,7 @@ const Pizza = () => {
                 </ul>
                 <div className="bottomCard">
                     <p className="price"><span>Precio: ${pizza.price}</span></p>
-                    <button id="btnSum">Añadir 🛒</button>
+                    <button id="btnSum" onClick={() => handleAddToCarrito(pizza)}>Añadir 🛒</button>
                 </div>
             </div>
       </div>

@@ -4,7 +4,12 @@ import { NavLink } from 'react-router-dom';
 import '../style.css'
 
 const Home = () => {
-    const { pizzaDetails } = usePizza();
+    const { pizzaDetails, addToCarrito } = usePizza();
+
+    const handleAddToCarrito = (pizza) => {
+        addToCarrito(pizza); // Agrega la pizza seleccionada al carrito
+    };
+
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
       };
@@ -35,7 +40,7 @@ const Home = () => {
                 </div>
                 <div className='boxBtn'>
                     <NavLink to={`/pizza/${pizza.id}`} id='btnVer' activeClassName='activeLink'>Ver Más 👀</NavLink>
-                    <button id='btnSum'> Añadir 🛒</button>
+                    <button id='btnSum' onClick={() => handleAddToCarrito(pizza)}> Añadir 🛒</button>
                 </div>
             </div>
           ))}

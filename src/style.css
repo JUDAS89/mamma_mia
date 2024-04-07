@@ -124,3 +124,75 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
+
+.pedido{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 20px 50px 20px 50px;
+    padding: 20px;
+}
+
+.carritoItems{
+    display: flex;
+    flex-direction: column;
+}
+
+.carritoItem{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    border-bottom: solid 1px;
+    border-color: lightgray;;
+}
+
+.imgCarritoItem{
+    width: 100px;
+    height: 100px;
+}
+
+.carritoDescription{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.boxCountPizzas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    margin: 20px;
+}
+
+#btnPluss{
+    background-color: tomato;
+    border-style: initial;
+    border-radius: 5px;
+    height: 30px;
+    margin: 10px;
+}
+
+#btnLess{
+    background-color:dodgerblue;
+    border-style: initial;
+    border-radius: 5px;
+    height: 30px;
+    margin: 10px;
+}
+
+#totalPrice{
+    color: green;
+}
+
+#btnPagar{
+    background-color: green;
+    border-style: initial;
+    border-radius: 5px;
+    color: white;
+    height: 30px;
+    width: 100px;
+}

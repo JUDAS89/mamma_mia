@@ -4,6 +4,7 @@ const PizzaContext = createContext();
 
 const PizzaProvider = ({ children }) => {
   const [pizzaDetails, setPizzaDetails] = useState([]);
+  const [selectedPizzas, setSelectedPizzas] = useState([])
 
   useEffect(() => {
     const getPizzaDetails = async () => {
@@ -22,8 +23,17 @@ const PizzaProvider = ({ children }) => {
     getPizzaDetails();
   }, []);
 
+    const addToCarrito = (pizza) => {
+        setSelectedPizzas([...selectedPizzas, pizza]);
+    };
+
+    const removeFromCarrito = (pizzaId) => {
+        const updatedPizzas = selectedPizzas.filter((pizza) => pizza.id !== pizzaId);
+        setSelectedPizzas(updatedPizzas);
+      };
+
   return (
-    <PizzaContext.Provider value={{ pizzaDetails }}>
+    <PizzaContext.Provider value={{ pizzaDetails, selectedPizzas, addToCarrito, removeFromCarrito }}>
       {children}
     </PizzaContext.Provider>
   );
