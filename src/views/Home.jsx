@@ -39,7 +39,7 @@ const Home = () => {
                     <p className='price'><span>$ {pizza.price}</span></p>
                 </div>
                 <div className='boxBtn'>
-                    <NavLink to={`/pizza/${pizza.id}`} id='btnVer' activeClassName='activeLink'>Ver Más 👀</NavLink>
+                    <NavLink to={`/pizza/${pizza.id}`} id='btnVer' activeclassname='activeLink'>Ver Más 👀</NavLink>
                     <button id='btnSum' onClick={() => handleAddToCarrito(pizza)}> Añadir 🛒</button>
                 </div>
             </div>

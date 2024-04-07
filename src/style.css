@@ -21,11 +21,13 @@ nav{
 .linkHome{
     padding-left: 60px;
     text-decoration: none;
+    color: white;
 }
 
 .linkCarrito{
     padding-right: 80px;
     text-decoration: none;
+    color: white;
 }
 
 .presentationHome{
